@@ -10,7 +10,7 @@ export function Navbar() {
   const links = [
     { to: "/", label: "Home", icon: Package },
     { to: "/tracking", label: "Track Package", icon: Search },
-    { to: "/admin", label: "Dashboard", icon: LayoutDashboard },
+   
   ];
 
   const isActive = (path: string) => location.pathname === path;
