@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      packages: {
+        Row: {
+          created_at: string
+          delivered_at: string | null
+          destination: string
+          estimated_delivery: string | null
+          id: string
+          in_transit_at: string | null
+          order_placed_at: string | null
+          origin: string
+          out_for_delivery_at: string | null
+          picked_up_at: string | null
+          recipient_name: string
+          sender_name: string
+          status: string
+          tracking_number: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          delivered_at?: string | null
+          destination: string
+          estimated_delivery?: string | null
+          id?: string
+          in_transit_at?: string | null
+          order_placed_at?: string | null
+          origin: string
+          out_for_delivery_at?: string | null
+          picked_up_at?: string | null
+          recipient_name: string
+          sender_name: string
+          status?: string
+          tracking_number: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          delivered_at?: string | null
+          destination?: string
+          estimated_delivery?: string | null
+          id?: string
+          in_transit_at?: string | null
+          order_placed_at?: string | null
+          origin?: string
+          out_for_delivery_at?: string | null
+          picked_up_at?: string | null
+          recipient_name?: string
+          sender_name?: string
+          status?: string
+          tracking_number?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
