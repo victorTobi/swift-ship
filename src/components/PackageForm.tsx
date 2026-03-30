@@ -26,6 +26,7 @@ const schema = z.object({
   origin: z.string().min(1, "Required"),
   destination: z.string().min(1, "Required"),
   status: z.string().min(1, "Required"),
+  current_location: z.string().optional(),
   estimated_delivery: z.string().optional(),
 });
 
@@ -58,6 +59,7 @@ export function PackageForm({
           origin: initialData.origin,
           destination: initialData.destination,
           status: initialData.status,
+          current_location: initialData.current_location || "",
           estimated_delivery: initialData.estimated_delivery || "",
         }
       : {
@@ -67,6 +69,7 @@ export function PackageForm({
           origin: "",
           destination: "",
           status: "Order Placed",
+          current_location: "",
           estimated_delivery: "",
         },
   });
@@ -142,6 +145,11 @@ export function PackageForm({
                 <p className="text-xs text-destructive">{form.formState.errors.destination.message}</p>
               )}
             </div>
+          </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="current_location">Current Location</Label>
+            <Input id="current_location" placeholder="e.g. Chicago Distribution Center" {...form.register("current_location")} />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
