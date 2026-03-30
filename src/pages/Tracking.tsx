@@ -18,6 +18,8 @@ const statusColors: Record<string, string> = {
   "In Transit": "bg-yellow-100 text-yellow-700",
   "Out for Delivery": "bg-orange-100 text-orange-700",
   "Delivered": "bg-green-100 text-green-700",
+  "Seized": "bg-red-100 text-red-700",
+  "Suspended": "bg-purple-100 text-purple-700",
 };
 
 export default function Tracking() {
@@ -140,6 +142,15 @@ export default function Tracking() {
                         <p className="font-medium">{pkg.origin} → {pkg.destination}</p>
                       </div>
                     </div>
+                    {pkg.current_location && (
+                      <div className="flex items-start gap-3">
+                        <MapPin className="mt-0.5 h-4 w-4 text-accent" />
+                        <div>
+                          <p className="text-xs text-muted-foreground">Current Location</p>
+                          <p className="font-medium">{pkg.current_location}</p>
+                        </div>
+                      </div>
+                    )}
                     {pkg.estimated_delivery && (
                       <div className="flex items-start gap-3">
                         <Calendar className="mt-0.5 h-4 w-4 text-muted-foreground" />
