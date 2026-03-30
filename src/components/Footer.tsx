@@ -29,7 +29,6 @@ export function Footer() {
             <h4 className="font-display font-semibold">Contact</h4>
             <div className="mt-3 flex flex-col gap-2 text-sm opacity-70">
               <p>support@swiftship.world</p>
-              <p>+1 (800) 555-SHIP</p>
               <p>Mon-Fri, 8AM - 8PM EST</p>
             </div>
           </div>
