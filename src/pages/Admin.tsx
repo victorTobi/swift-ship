@@ -182,7 +182,7 @@ export default function Admin() {
                   <TableHead className="hidden md:table-cell">Origin</TableHead>
                   <TableHead className="hidden md:table-cell">Destination</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead className="hidden lg:table-cell">Updated</TableHead>
+                  
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -200,9 +200,8 @@ export default function Admin() {
                         {p.status}
                       </Badge>
                     </TableCell>
-                    <TableCell className="hidden lg:table-cell text-muted-foreground text-sm">
-                      {format(new Date(p.updated_at), "MMM d, h:mm a")}
-                    </TableCell>
+
+
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-1">
                         <Button
