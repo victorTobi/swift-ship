@@ -97,7 +97,7 @@ export default function Tracking() {
                 <p className="mt-2 text-muted-foreground">
                   We couldn't find a package with tracking number{" "}
                   <span className="font-mono font-semibold text-foreground">{query}</span>.
-                  Please double-check and try again.
+                  Please double-check and try again. If this issue persists, please contact our team.
                 </p>
               </CardContent>
             </Card>
