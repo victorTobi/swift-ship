@@ -17,6 +17,7 @@ export type Database = {
       packages: {
         Row: {
           created_at: string
+          current_location: string | null
           delivered_at: string | null
           destination: string
           estimated_delivery: string | null
@@ -34,6 +35,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          current_location?: string | null
           delivered_at?: string | null
           destination: string
           estimated_delivery?: string | null
@@ -51,6 +53,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          current_location?: string | null
           delivered_at?: string | null
           destination?: string
           estimated_delivery?: string | null

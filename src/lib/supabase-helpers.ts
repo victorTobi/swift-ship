@@ -11,11 +11,13 @@ export const STATUSES = [
   "In Transit",
   "Out for Delivery",
   "Delivered",
+  "Seized",
+  "Suspended",
 ] as const;
 
 export type ShipmentStatus = (typeof STATUSES)[number];
 
-export const statusTimestampMap: Record<ShipmentStatus, keyof Package> = {
+export const statusTimestampMap: Partial<Record<ShipmentStatus, keyof Package>> = {
   "Order Placed": "order_placed_at",
   "Picked Up": "picked_up_at",
   "In Transit": "in_transit_at",
