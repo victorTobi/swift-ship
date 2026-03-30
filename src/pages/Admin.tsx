@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Navbar } from "@/components/Navbar";
 import { PackageForm } from "@/components/PackageForm";
+import { AdminGate } from "@/components/AdminGate";
 import {
   fetchAllPackages,
   createPackage,
@@ -131,6 +132,7 @@ export default function Admin() {
   );
 
   return (
+    <AdminGate>
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
 
@@ -273,5 +275,6 @@ export default function Admin() {
         </AlertDialogContent>
       </AlertDialog>
     </div>
+    </AdminGate>
   );
 }
