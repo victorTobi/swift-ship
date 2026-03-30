@@ -132,6 +132,7 @@ export default function Admin() {
   );
 
   return (
+    <AdminGate>
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
 
