@@ -21,14 +21,28 @@ export function TrackingTimeline({ pkg }: TrackingTimelineProps) {
   const currentIdx = isSpecialStatus ? -1 : TIMELINE_STATUSES.indexOf(pkg.status as typeof TIMELINE_STATUSES[number]);
 
   return (
-    <div className="relative">
+    <div className="relative space-y-4">
+      {isSpecialStatus && (
+        <div className={`flex items-center gap-3 rounded-lg p-4 ${pkg.status === "Seized" ? "bg-red-50 border border-red-200 text-red-800" : "bg-purple-50 border border-purple-200 text-purple-800"}`}>
+          {pkg.status === "Seized" ? <ShieldAlert className="h-5 w-5" /> : <PauseCircle className="h-5 w-5" />}
+          <div>
+            <p className="font-semibold">Shipment {pkg.status}</p>
+            <p className="text-sm opacity-80">
+              {pkg.status === "Seized"
+                ? "This shipment has been seized by authorities. Please contact support."
+                : "This shipment has been temporarily suspended. Please contact support."}
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Mobile: vertical timeline */}
       <div className="flex flex-col gap-0 md:hidden">
-        {STATUSES.map((status, idx) => {
+        {TIMELINE_STATUSES.map((status, idx) => {
           const isCompleted = idx <= currentIdx;
           const isCurrent = idx === currentIdx;
-          const tsKey = statusTimestampMap[status];
-          const timestamp = pkg[tsKey] as string | null;
+          const tsKey = statusTimestampMap[status as ShipmentStatus];
+          const timestamp = tsKey ? (pkg[tsKey] as string | null) : null;
           const Icon = statusIcons[status];
 
           return (
@@ -47,7 +61,7 @@ export function TrackingTimeline({ pkg }: TrackingTimelineProps) {
                     <Icon className="h-5 w-5" />
                   )}
                 </div>
-                {idx < STATUSES.length - 1 && (
+                {idx < TIMELINE_STATUSES.length - 1 && (
                   <div
                     className={`w-0.5 flex-1 min-h-[2rem] ${
                       idx < currentIdx ? "bg-accent" : "bg-muted"
@@ -73,11 +87,11 @@ export function TrackingTimeline({ pkg }: TrackingTimelineProps) {
       {/* Desktop: horizontal timeline */}
       <div className="hidden md:block">
         <div className="flex items-center justify-between">
-          {STATUSES.map((status, idx) => {
+          {TIMELINE_STATUSES.map((status, idx) => {
             const isCompleted = idx <= currentIdx;
             const isCurrent = idx === currentIdx;
-            const tsKey = statusTimestampMap[status];
-            const timestamp = pkg[tsKey] as string | null;
+            const tsKey = statusTimestampMap[status as ShipmentStatus];
+            const timestamp = tsKey ? (pkg[tsKey] as string | null) : null;
             const Icon = statusIcons[status];
 
             return (
