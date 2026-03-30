@@ -182,7 +182,7 @@ export default function Admin() {
                   <TableHead className="hidden md:table-cell">Origin</TableHead>
                   <TableHead className="hidden md:table-cell">Destination</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead className="hidden lg:table-cell">Updated</TableHead>
+                  
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
