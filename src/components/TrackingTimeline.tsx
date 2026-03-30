@@ -1,8 +1,10 @@
 import { STATUSES, type Package, type ShipmentStatus, statusTimestampMap } from "@/lib/supabase-helpers";
-import { CheckCircle2, Circle, Package as PackageIcon, Truck, MapPin, Home } from "lucide-react";
+import { CheckCircle2, Circle, Package as PackageIcon, Truck, MapPin, Home, ShieldAlert, PauseCircle } from "lucide-react";
 import { format } from "date-fns";
 
-const statusIcons = {
+const TIMELINE_STATUSES = ["Order Placed", "Picked Up", "In Transit", "Out for Delivery", "Delivered"] as const;
+
+const statusIcons: Record<string, typeof PackageIcon> = {
   "Order Placed": PackageIcon,
   "Picked Up": MapPin,
   "In Transit": Truck,
@@ -15,7 +17,8 @@ interface TrackingTimelineProps {
 }
 
 export function TrackingTimeline({ pkg }: TrackingTimelineProps) {
-  const currentIdx = STATUSES.indexOf(pkg.status as ShipmentStatus);
+  const isSpecialStatus = pkg.status === "Seized" || pkg.status === "Suspended";
+  const currentIdx = isSpecialStatus ? -1 : TIMELINE_STATUSES.indexOf(pkg.status as typeof TIMELINE_STATUSES[number]);
 
   return (
     <div className="relative">
