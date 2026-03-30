@@ -275,5 +275,6 @@ export default function Admin() {
         </AlertDialogContent>
       </AlertDialog>
     </div>
+    </AdminGate>
   );
 }
