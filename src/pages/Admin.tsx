@@ -48,6 +48,8 @@ const statusColors: Record<string, string> = {
   "In Transit": "bg-yellow-100 text-yellow-700",
   "Out for Delivery": "bg-orange-100 text-orange-700",
   "Delivered": "bg-green-100 text-green-700",
+  "Seized": "bg-red-100 text-red-700",
+  "Suspended": "bg-purple-100 text-purple-700",
 };
 
 export default function Admin() {
@@ -71,6 +73,7 @@ export default function Admin() {
         origin: data.origin as string,
         destination: data.destination as string,
         status: data.status as string,
+        current_location: (data.current_location as string) || null,
         estimated_delivery: (data.estimated_delivery as string) || null,
         order_placed_at: new Date().toISOString(),
       };
@@ -92,6 +95,7 @@ export default function Admin() {
         origin: data.origin,
         destination: data.destination,
         status: data.status,
+        current_location: (data.current_location as string) || null,
         estimated_delivery: (data.estimated_delivery as string) || null,
       };
       // Set timestamp for the status
