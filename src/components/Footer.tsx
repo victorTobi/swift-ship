@@ -22,7 +22,7 @@ export function Footer() {
             <div className="mt-3 flex flex-col gap-2 text-sm opacity-70">
               <Link to="/" className="hover:opacity-100 transition-opacity">Home</Link>
               <Link to="/tracking" className="hover:opacity-100 transition-opacity">Track Package</Link>
-              <Link to="/admin" className="hover:opacity-100 transition-opacity">Admin Dashboard</Link>
+        
             </div>
           </div>
           <div>
