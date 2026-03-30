@@ -200,9 +200,8 @@ export default function Admin() {
                         {p.status}
                       </Badge>
                     </TableCell>
-                    <TableCell className="hidden lg:table-cell text-muted-foreground text-sm">
-                      {format(new Date(p.updated_at), "MMM d, h:mm a")}
-                    </TableCell>
+
+
                     <TableCell className="text-right">
                       <div className="flex items-center justify-end gap-1">
                         <Button
